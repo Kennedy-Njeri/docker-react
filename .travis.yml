@@ -8,3 +8,10 @@ before_install:
 
 script:
   - docker run -e CI=true kennedy/docker-react npm run test -- --coverage --watchAll=false
+
+deploy:
+  skip_cleanup: true
+  provider: script
+  script: bash ./scripts/deploy.sh
+  on:
+    branch:
